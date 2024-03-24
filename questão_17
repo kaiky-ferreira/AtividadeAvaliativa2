@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+      Scanner teclado = new Scanner(System.in);
+      System.out.println("Digite um valor inteiro para fatorar: ");
+      int valor = teclado.nextInt();
+
+      int fatorial = 1;
+      String fatorialString = valor + "! = ";
+
+      for (int i = valor; i > 0; i--) {
+          fatorial *= i;
+          fatorialString += i;
+          if (i > 1) {
+              fatorialString += ".";
+          }
+      }
+
+      fatorialString += " = " + fatorial;
+
+      System.out.println(fatorialString);
+
+       teclado.close();
+  }
+}
