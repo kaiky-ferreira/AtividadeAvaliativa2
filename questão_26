@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Digite o número total de eleitores: ");
+        int totalEleitores = teclado.nextInt();
+
+        int[] votos = new int[3];
+
+        for (int i = 0; i < totalEleitores; i++) {
+            System.out.println("Eleitor " + (i + 1) + ":");
+            System.out.println("Digite o número do candidato (1, 2 ou 3): ");
+            int voto = teclado.nextInt();
+
+            if (voto >= 1 && voto <= 3) {
+                votos[voto - 1]++;
+            } else {
+                System.out.println("Voto inválido. Por favor, vote novamente.");
+                i--;
+            }
+        }
+        for (int i = 0; i < votos.length; i++) {
+            System.out.println("Candidato " + (i + 1) + ": " + votos[i] + " votos.");
+        }
+
+        teclado.close();
+    }
+}
