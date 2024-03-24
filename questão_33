@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        double temperatura;
+        double soma = 0;
+        double menor = Double.MAX_VALUE;
+        double maior = Double.MIN_VALUE;
+        int contador = 0;
+
+        System.out.println("Digite as temperaturas (digite 0 para encerrar):");
+
+        do {
+            temperatura = teclado.nextDouble();
+            if (temperatura != 0) {
+                soma += temperatura;
+                contador++;
+                if (temperatura < menor) {
+                    menor = temperatura;
+                }
+                if (temperatura > maior) {
+                    maior = temperatura;
+                }
+            }
+        } while (temperatura != 0);
+
+        if (contador > 0) {
+            double media = soma / contador;
+            System.out.println("Menor temperatura: " + menor);
+            System.out.println("Maior temperatura: " + maior);
+            System.out.println("Média das temperaturas: " + media);
+        } else {
+            System.out.println("Nenhuma temperatura foi informada.");
+        }
+
+        teclado.close();
+    }
+}
