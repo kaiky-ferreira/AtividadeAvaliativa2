@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+      int anos = 0, populacaoPaisA = 80000, populacaoPaisB = 200000;
+      double taxaA = 0.03, taxaB = 0.015;
+      Scanner teclado = new Scanner(System.in);
+      while(populacaoPaisA <= populacaoPaisB){
+        populacaoPaisA += (int) (populacaoPaisA * taxaA);
+        populacaoPaisB += (int) (populacaoPaisB * taxaB);
+        anos++;
+      }
+      System.out.println("O País A irá ultrapassar o País B em sentido a população em: " + anos + " anos");
+       teclado.close();
+  }
+}
