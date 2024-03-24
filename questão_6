@@ -1,0 +1,10 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+      Scanner teclado = new Scanner(System.in);
+      for (int numeros = 1; numeros <= 20; numeros++) {
+          System.out.print(numeros);
+      }
+       teclado.close();
+  }
+}
