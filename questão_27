@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Digite a quantidade de turmas: ");
+        int quantidadeTurmas = teclado.nextInt();
+
+        int totalAlunos = 0;
+
+        for (int i = 1; i <= quantidadeTurmas; i++) {
+            int quantidadeAlunos;
+            do {
+                System.out.print("Digite a quantidade de alunos na turma " + i + " (máximo de 40 alunos): ");
+                quantidadeAlunos = teclado.nextInt();
+                if (quantidadeAlunos > 40) {
+                    System.out.println("A quantidade de alunos não pode ser maior que 40. Tente novamente.");
+                }
+            } while (quantidadeAlunos > 40);
+
+            totalAlunos += quantidadeAlunos;
+        }
+
+        double mediaAlunosPorTurma = (double) totalAlunos / quantidadeTurmas;
+
+        System.out.println("A média de alunos por turma é: " + mediaAlunosPorTurma);
+
+        teclado.close();
+    }
+}
