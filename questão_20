@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        char continuar;
+        do {
+            System.out.println("Digite um valor inteiro positivo e menor que 16 para fatorar: ");
+            int valor = teclado.nextInt();
+
+            if (valor >= 0 && valor < 16) {
+                int fatorial = 1;
+                String fatorialString = valor + "! = ";
+
+                for (int i = valor; i > 0; i--) {
+                    fatorial *= i;
+                    fatorialString += i;
+                    if (i > 1) {
+                        fatorialString += ".";
+                    }
+                }
+
+                fatorialString += " = " + fatorial;
+
+                System.out.println(fatorialString);
+            } else {
+                System.out.println("O valor digitado não é válido para o cálculo do fatorial.");
+            }
+
+            System.out.println("Deseja calcular o fatorial de outro número? (S/N): ");
+            continuar = teclado.next().charAt(0);
+        } while (continuar == 'S');
+
+        teclado.close();
+    }
+}
