@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Digite um valor inteiro para calcular o fatorial: ");
+        int numero = teclado.nextInt();
+
+        int fatorial = 1;
+        String expressaoFatorial = "";
+
+        for (int i = numero; i > 0; i--) {
+            fatorial *= i;
+            expressaoFatorial += i;
+            if (i > 1) {
+                expressaoFatorial += " . ";
+            }
+        }
+
+        System.out.println(numero + "! = " + expressaoFatorial + " = " + fatorial);
+
+        teclado.close();
+    }
+}
