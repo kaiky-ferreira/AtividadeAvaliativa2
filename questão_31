@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        while (true) {
+            double totalCompra = 0;
+            int numeroProduto = 1;
+
+            System.out.println("Lojas Tabajara - Compra número ");
+            while (true) {
+                System.out.print("Produto " + numeroProduto + ": R$ ");
+                double preco = teclado.nextDouble();
+                if (preco == 0) {
+                    break;
+                }
+                totalCompra += preco;
+                numeroProduto++;
+            }
+
+            System.out.println("Total: R$ " + String.format("%.2f", totalCompra));
+
+            System.out.print("Dinheiro: R$ ");
+            double valorPago = teclado.nextDouble();
+
+            double troco = valorPago - totalCompra;
+            System.out.println("Troco: R$ " + String.format("%.2f", troco));
+
+            System.out.println("Registrar outra compra? (S/N)");
+            String continuar = teclado.next();
+            if (!continuar.equalsIgnoreCase("S")) {
+                break;
+            }
+
+        }
+
+        System.out.println("Programa encerrado.");
+        teclado.close();
+    }
+}
