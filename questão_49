@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro positivo: ");
+        int numero = teclado.nextInt();
+
+        if (numero <= 0) {
+            System.out.println("O número deve ser positivo.");
+        } else {
+            String numeroString = Integer.toString(numero);
+            String numeroInvertidoString = new StringBuilder(numeroString).reverse().toString();
+            int numeroInvertido = Integer.parseInt(numeroInvertidoString);
+
+            System.out.println("Número invertido: " + numeroInvertido);
+        }
+
+        teclado.close();
+    }
+}
