@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        int codigo, quantidade;
+        double preco, totalGeral = 0;
+
+        System.out.println("Cardápio:");
+        System.out.println("Especificação   Código  Preço");
+        System.out.println("Cachorro Quente 100     R$ 1,20");
+        System.out.println("Bauru Simples   101     R$ 1,30");
+        System.out.println("Bauru com ovo   102     R$ 1,50");
+        System.out.println("Hambúrguer      103     R$ 1,20");
+        System.out.println("Cheeseburguer   104     R$ 1,30");
+        System.out.println("Refrigerante    105     R$ 1,00\n");
+
+        while (true) {
+            System.out.print("Digite o código do item (ou -1 para encerrar o pedido): ");
+            codigo = teclado.nextInt();
+            if (codigo == -1) {
+                break;
+            }
+            System.out.print("Digite a quantidade desejada: ");
+            quantidade = teclado.nextInt();
+
+            switch (codigo) {
+                case 100:
+                    preco = 1.20;
+                    break;
+                case 101:
+                    preco = 1.30;
+                    break;
+                case 102:
+                    preco = 1.50;
+                    break;
+                case 103:
+                    preco = 1.20;
+                    break;
+                case 104:
+                    preco = 1.30;
+                    break;
+                case 105:
+                    preco = 1.00;
+                    break;
+                default:
+                    System.out.println("Código inválido. Tente novamente.");
+                    continue;
+            }
+
+            double totalItem = preco * quantidade;
+            totalGeral += totalItem;
+            System.out.printf("Total do item: R$ %.2f\n", totalItem);
+        }
+
+        System.out.printf("Total geral do pedido: R$ %.2f\n", totalGeral);
+
+        teclado.close();
+    }
+}
