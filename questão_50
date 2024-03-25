@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Digite o valor de n: ");
+        int n = teclado.nextInt();
+
+        double s = 0.0;
+        int m = 1;
+
+        for (int i = 1; i <= n; i++) {
+            s += (double) i / m;
+            m += 2;
+        }
+
+        System.out.println("Soma da série: " + s);
+
+        teclado.close();
+    }
+}
