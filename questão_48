@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        List<String> ginastas = new ArrayList<String>();
+
+        while (true) {
+            System.out.print("Nome do ginasta: ");
+            String nome = teclado.nextLine();
+            if (nome.isEmpty()) {
+                break;
+            }
+            ginastas.add(nome);
+
+            List<Double> notas = new ArrayList<Double>();
+            for (int i = 1; i <= 7; i++) {
+                System.out.print("Nota " + i + ": ");
+                double nota = teclado.nextDouble();
+                notas.add(nota);
+                teclado.nextLine();
+            }
+
+            double melhorNota = notas.get(0);
+            double piorNota = notas.get(0);
+            double soma = notas.get(0);
+
+            for (int i = 1; i < notas.size(); i++) {
+                double nota = notas.get(i);
+                soma += nota;
+                if (nota > melhorNota) {
+                    melhorNota = nota;
+                }
+                if (nota < piorNota) {
+                    piorNota = nota;
+                }
+            }
+
+            soma = soma - melhorNota - piorNota;
+            double media = soma / 5;
+
+            System.out.println("\nResultado final:");
+            System.out.println("Atleta: " + nome);
+            System.out.println("Melhor nota: " + melhorNota);
+            System.out.println("Pior nota: " + piorNota);
+            System.out.println("Média: " + String.format("%.2f", media) + "\n");
+        }
+
+        teclado.close();
+    }
+}
