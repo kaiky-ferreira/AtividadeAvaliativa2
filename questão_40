@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        int numeroAlunoMaisAlto = 0, numeroAlunoMaisBaixo = 0;
+        int alturaAlunoMaisAlto = 0, alturaAlunoMaisBaixo = Integer.MAX_VALUE;
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Digite o número do aluno " + i + ": ");
+            int numeroAluno = teclado.nextInt();
+
+            System.out.print("Digite a altura do aluno " + i + " em centímetros: ");
+            int alturaAluno = teclado.nextInt();
+
+            if (alturaAluno > alturaAlunoMaisAlto) {
+                alturaAlunoMaisAlto = alturaAluno;
+                numeroAlunoMaisAlto = numeroAluno;
+            }
+
+            if (alturaAluno < alturaAlunoMaisBaixo) {
+                alturaAlunoMaisBaixo = alturaAluno;
+                numeroAlunoMaisBaixo = numeroAluno;
+            }
+        }
+
+        System.out.println("Aluno mais alto:");
+        System.out.println("Número: " + numeroAlunoMaisAlto + ", Altura: " + alturaAlunoMaisAlto + " cm");
+
+        System.out.println("Aluno mais baixo:");
+        System.out.println("Número: " + numeroAlunoMaisBaixo + ", Altura: " + alturaAlunoMaisBaixo + " cm");
+
+        teclado.close();
+    }
+}
