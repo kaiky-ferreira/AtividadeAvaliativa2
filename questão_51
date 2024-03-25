@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o valor de n: ");
+        int n = scanner.nextInt();
+
+        double soma = 0.0;
+        int m = 1;
+        for (int i = 1; i <= n; i++) {
+            double termo = (double) i / m;
+            soma += termo;
+            System.out.printf("Termo %d: %.2f\n", i, termo);
+            m += 2;
+        }
+
+        System.out.println("A soma da série é: " + soma);
+
+        scanner.close();
+    }
+}
