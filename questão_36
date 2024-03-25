@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro para a tabuada: ");
+        int numero = teclado.nextInt();
+
+        System.out.print("Digite o valor inicial da tabuada: ");
+        int inicio = teclado.nextInt();
+
+        System.out.print("Digite o valor final da tabuada: ");
+        int fim = teclado.nextInt();
+
+        System.out.println("Tabuada de " + numero + " de " + inicio + " a " + fim + ":");
+
+        for (int i = inicio; i <= fim; i++) {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
+
+        teclado.close();
+    }
+}
