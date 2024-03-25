@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        int codigo;
+        double altura, peso;
+        int codigoMaisAlto = 0, codigoMaisBaixo = 0, codigoMaisGordo = 0, codigoMaisMagro = 0;
+        double alturaMaisAlto = 0, alturaMaisBaixo = Double.MAX_VALUE;
+        double pesoMaisGordo = 0, pesoMaisMagro = Double.MAX_VALUE;
+        double somaAlturas = 0, somaPesos = 0;
+        int quantidadeClientes = 0;
+
+        System.out.println("Digite o código, a altura e o peso de cada cliente (digite 0 para encerrar):");
+
+        while (true) {
+            System.out.print("Código: ");
+            codigo = teclado.nextInt();
+            if (codigo == 0) {
+                break;
+            }
+
+            System.out.print("Altura (m): ");
+            altura = teclado.nextDouble();
+            System.out.print("Peso (kg): ");
+            peso = teclado.nextDouble();
+
+            if (altura > alturaMaisAlto) {
+                alturaMaisAlto = altura;
+                codigoMaisAlto = codigo;
+            }
+            if (altura < alturaMaisBaixo) {
+                alturaMaisBaixo = altura;
+                codigoMaisBaixo = codigo;
+            }
+            if (peso > pesoMaisGordo) {
+                pesoMaisGordo = peso;
+                codigoMaisGordo = codigo;
+            }
+            if (peso < pesoMaisMagro) {
+                pesoMaisMagro = peso;
+                codigoMaisMagro = codigo;
+            }
+
+            somaAlturas += altura;
+            somaPesos += peso;
+            quantidadeClientes++;
+        }
+
+        if (quantidadeClientes > 0) {
+            double mediaAlturas = somaAlturas / quantidadeClientes;
+            double mediaPesos = somaPesos / quantidadeClientes;
+
+            System.out.println("Cliente mais alto:");
+            System.out.println("Código: " + codigoMaisAlto + ", Altura: " + alturaMaisAlto + "m");
+            System.out.println("Cliente mais baixo:");
+            System.out.println("Código: " + codigoMaisBaixo + ", Altura: " + alturaMaisBaixo + "m");
+            System.out.println("Cliente mais gordo:");
+            System.out.println("Código: " + codigoMaisGordo + ", Peso: " + pesoMaisGordo + "kg");
+            System.out.println("Cliente mais magro:");
+            System.out.println("Código: " + codigoMaisMagro + ", Peso: " + pesoMaisMagro + "kg");
+            System.out.println("Média das alturas: " + mediaAlturas + "m");
+            System.out.println("Média dos pesos: " + mediaPesos + "kg");
+        } else {
+            System.out.println("Nenhum cliente foi cadastrado.");
+        }
+
+        teclado.close();
+    }
+}
