@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        List<String> atletas = new ArrayList<String>();
+
+        while (true) {
+            System.out.print("Nome do atleta: ");
+            String nome = teclado.nextLine();
+            if (nome.isEmpty()) {
+                break;
+            }
+            atletas.add(nome);
+
+            List<Double> saltos = new ArrayList<Double>();
+            for (int i = 1; i <= 5; i++) {
+                System.out.print("Salto " + i + ": ");
+                double salto = teclado.nextDouble();
+                saltos.add(salto);
+                teclado.nextLine();
+            }
+
+            double melhorSalto = saltos.get(0);
+            double piorSalto = saltos.get(0);
+            double soma = saltos.get(0);
+
+            for (int i = 1; i < saltos.size(); i++) {
+                double salto = saltos.get(i);
+                soma += salto;
+                if (salto > melhorSalto) {
+                    melhorSalto = salto;
+                }
+                if (salto < piorSalto) {
+                    piorSalto = salto;
+                }
+            }
+
+            soma = soma - melhorSalto - piorSalto;
+            double media = soma / 3;
+
+            System.out.println("\nResultado final:");
+            System.out.println(nome + ": " + String.format("%.2f", media) + " m\n");
+
+            System.out.println("Melhor salto:  " + melhorSalto + " m");
+            System.out.println("Pior salto: " + piorSalto + " m");
+            System.out.println("Média dos demais saltos: " + String.format("%.2f", media) + " m\n");
+        }
+
+        teclado.close();
+    }
+}
