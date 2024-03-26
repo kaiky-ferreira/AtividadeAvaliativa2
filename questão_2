@@ -9,7 +9,7 @@ public class Main{
         System.out.println("Senha: ");
         senha = teclado.nextLine();
         if(nome.equals(senha)){
-        System.out.println("Sua senha não pode ser a mesma de seu nome, tente de novo: ");
+        System.out.println("Sua senha não pode ser a mesma do nome, tente de novo: ");
       }
     } while(nome.equals(senha));
        teclado.close();
